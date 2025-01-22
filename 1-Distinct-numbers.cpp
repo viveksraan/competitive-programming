@@ -9,45 +9,24 @@ using namespace std;
 # define RevSort(v) sort(v.begin(), v.end(), greater<ll>())
 #define vll vector<ll> 
 #define vull vector<ull>
-# define MAX_SIZE 10000
+# define MAX_SIZE 100001
 # define fl(i, N) for(ll i=0; i<N; i++)
 # define fl1(i, N) for(ll i=1; i<=N; i++)
 # define endl '\n'
 
-vector<ll> v(MAX_SIZE);
-ll n;
-ll k;
-double absolute = 0.00000001;
-
-bool isPos(double ans){
-    ll pos = 0;
-    for(ll i=0; i<n; i++){
-        pos+=static_cast<long long int>(v[i]/ans);
-    }
-    return pos>=k;
-}
-
 
 void result()
     {
-    cin >> n >> k;
-    v.resize(n);
-    double l = 0.00000001, r = 1e7;
+     ll n;
+    cin >> n;
+    map<ll, ll> m;
+    ll temp;
     for(int i = 0; i<n; i++){
-        cin >> v[i];
+        cin >> temp;
+        m[temp]++;
     }
-    ll upto = 600;
-    double ans;
-    while(upto--){
-        ans = (l+r)/2;
-        // cout << l << " is l  and then mid is " << ans << " and finally h is " << r << "\n";
-        if(isPos(ans))
-            l=ans;
-        else
-            r=ans-absolute;
-    }
-    cout << setprecision(7);
-    cout << ans << "\n";
+    ll res = m.size();
+    cout << res << endl;
     }
     
 int main(){
